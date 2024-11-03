@@ -30,10 +30,7 @@ In the initial phase of data cleaning and preparations, I performed the followin
   
 - Appending Tables: Combined all tables into a single comprehensive table.
 
-- Creating Debit and Credit Columns: Used conditional formulas to separate amounts into Debit and Credit columns:
-
-Debit: = if [Amount] < 0 then [Amount] else null
-
+- Creating Debit and Credit Columns: Used conditional formulas to separate amounts into Debit and Credit columns: Debit: = if [Amount] < 0 then [Amount] else null
 Credit: = if [Amount] > 0 then [Amount] else null
 
 
