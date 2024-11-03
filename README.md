@@ -52,3 +52,9 @@ Credit: = if [Amount] > 0 then [Amount] else null
 - To ascertain the highest and lowest daily transactions 
 - To identify the transaction category with the highest bonus 
 - To ascertain the most preferred transaction 
+
+### Data Analysis 
+```
+DAX
+Total Transactions = SUM('YourTable'[Credit]) + SUM('YourTable'[Debit])
+```
