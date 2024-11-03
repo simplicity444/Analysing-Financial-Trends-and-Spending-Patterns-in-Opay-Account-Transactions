@@ -55,6 +55,7 @@ Credit: = if [Amount] > 0 then [Amount] else null
 
 ### Data Analysis 
 ```
-DAX
-Total Transactions = SUM('YourTable'[Credit]) + SUM('YourTable'[Debit])
+Total Transactions =
+SUM('Opay Satement'[Credit]) +
+SUM('Opay Satement'[Debit])
 ```
