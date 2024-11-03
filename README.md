@@ -42,3 +42,13 @@ Credit: = if [Amount] > 0 then [Amount] else null
 
 
 - Finalizing and Saving Data: Disabled all tables from loading except the appended table, applied changes, and saved the cleaned dataset.
+
+### Exploratory Data Analysis (EDA)
+
+- To understand the overall transactions made both credit and debit.
+- To determine the total and average credit transactions 
+- To determine the total and average debit transactions 
+- To ascertain the highest and lowest monthly transactions.
+- To ascertain the highest and lowest daily transactions 
+- To identify the transaction category with the highest bonus 
+- To ascertain the most preferred transaction 
