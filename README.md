@@ -22,9 +22,9 @@ This project analyses a comprehensive dataset derived from Opay account statemen
 
 In the initial phase of data cleaning and preparations, I performed the following actions:
 
--###Data Loading and Inspection: Loaded the Opay statement of account PDF file into Power BI by selecting Get Data and connecting to the PDF file. Selected all tables and initiated Transform Data to activate the Power Query Editor.
+-### Data Loading and Inspection: Loaded the Opay statement of account PDF file into Power BI by selecting Get Data and connecting to the PDF file. Selected all tables and initiated Transform Data to activate the Power Query Editor.
 
---Handling Account Details and Table Structure: Deleted the first three tables containing account owner details. Reviewed each table to ensure consistent column structure and data types.
+-- Handling Account Details and Table Structure: Deleted the first three tables containing account owner details. Reviewed each table to ensure consistent column structure and data types.
 
 Data Cleaning and Formatting:
 
