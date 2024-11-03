@@ -55,7 +55,7 @@ Credit: = if [Amount] > 0 then [Amount] else null
 
 ### Data Analysis 
 
-- 1. Understand the Overall Transactions (Credit and Debit)
+1. Understand the Overall Transactions (Credit and Debit)
 Measure: Create a measure to sum both credit and debit transactions to get the overall transaction value.
 ```
 Total Transactions =
@@ -63,50 +63,48 @@ SUM('Opay Satement'[Credit]) +
 SUM('YourTable'[Debit])
 ```
 
-- 2. Determine the Total and Average Credit TransactionsMeasures:
+2. Determine the Total and Average Credit TransactionsMeasures:
 Total Credit: Sum of all credit transactions.
 
-Total Credit = SUM('YourTable'[Credit])
-
+Total Credit = 
+```
+SUM('Opay Statement'[Credit])
+```
 Average Credit: Average of credit transactions.
 
-Average Credit = AVERAGE('YourTable'[Credit])
+Average Credit =
+```
+AVERAGE('Opay Statement'[Credit])
+```
 
-
-Visualization: Use cards for each measure or a table to display total and average credit values.
-
-
-- 3. Determine the Total and Average Debit Transactions
-
-- Measures:Total Debit: Sum of all debit transactions.
-
-Total Debit = SUM('YourTable'[Debit])
-
+3. Determine the Total and Average Debit Transactions
+Measures:
+Total Debit =
+```
+SUM('Opay Statement'[Debit])
+```
 Average Debit: Average of debit transactions.
-
-Average Debit = AVERAGE('YourTable'[Debit])
-
-
-Visualization: Similar to credit, use cards or a table to show these values.
-
+Average Debit = 
+```
+AVERAGE('Opay Statement'[Debit])
+```
 
 4. Ascertain the Highest and Lowest Monthly Transactions
 
 Measure:
-
 Use Month from your date column to create monthly aggregated totals.
-
 Highest Monthly Transaction:
-
-Highest Monthly Transaction = MAXX(SUMMARIZE('YourTable', 'YourTable'[Month], "MonthlyTotal", SUM('YourTable'[Credit] + 'YourTable'[Debit])), [MonthlyTotal])
+Highest Monthly Transaction = 
+```
+MAXX(SUMMARIZE('YourTable', 'Opay Statement'[Month], "MonthlyTotal",
+SUM('Opay Statement'[Credit] + 'Opay Statement'[Debit])), [MonthlyTotal])
+```
 
 Lowest Monthly Transaction:
-
-Lowest Monthly Transaction = MINX(SUMMARIZE('YourTable', 'YourTable'[Month], "MonthlyTotal", SUM('YourTable'[Credit] + 'YourTable'[Debit])), [MonthlyTotal])
-
-
-Visualization: Use a bar chart to compare monthly totals, making it easy to see the highest and lowest values.
-
+Lowest Monthly Transaction = 
+```
+MINX(SUMMARIZE('Opay Statement', 'Opay Statement'[Month], "MonthlyTotal", SUM('Opay Statement'[Credit] + 'Opay Statement'[Debit])), [MonthlyTotal])
+```
 
 5. Ascertain the Highest and Lowest Daily Transactions
 
@@ -115,9 +113,10 @@ Measure:
 Use Date from your table for daily aggregated totals.
 
 Highest Daily Transaction:
-
-Highest Daily Transaction = MAXX(SUMMARIZE('YourTable', 'YourTable'[Date], "DailyTotal", SUM('YourTable'[Credit] + 'YourTable'[Debit])), [DailyTotal])
-
+```
+Highest Daily Transaction = 
+MAXX(SUMMARIZE('Opay Statement', 'Opay Statement'[Date], "DailyTotal", SUM('Opay Statement'[Credit] + 'Opay Statement'[Debit])), [DailyTotal])
+```
 Lowest Daily Transaction:
 
 Lowest Daily Transaction = MINX(SUMMARIZE('YourTable', 'YourTable'[Date], "DailyTotal", SUM('YourTable'[Credit] + 'YourTable'[Debit])), [DailyTotal])
