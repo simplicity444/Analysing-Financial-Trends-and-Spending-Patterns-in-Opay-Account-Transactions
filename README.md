@@ -54,8 +54,104 @@ Credit: = if [Amount] > 0 then [Amount] else null
 - To ascertain the most preferred transaction 
 
 ### Data Analysis 
+
+- 1. Understand the Overall Transactions (Credit and Debit)
+
+Measure: Create a measure to sum both credit and debit transactions to get the overall transaction value.
 ```
 Total Transactions =
 SUM('Opay Satement'[Credit]) +
-SUM('Opay Satement'[Debit])
+SUM('YourTable'[Debit])
 ```
+
+- 2. Determine the Total and Average Credit Transactions
+
+Measures:
+Total Credit: Sum of all credit transactions.
+
+Total Credit = SUM('YourTable'[Credit])
+
+Average Credit: Average of credit transactions.
+
+Average Credit = AVERAGE('YourTable'[Credit])
+
+
+Visualization: Use cards for each measure or a table to display total and average credit values.
+
+
+3. Determine the Total and Average Debit Transactions
+
+Measures:
+
+Total Debit: Sum of all debit transactions.
+
+Total Debit = SUM('YourTable'[Debit])
+
+Average Debit: Average of debit transactions.
+
+Average Debit = AVERAGE('YourTable'[Debit])
+
+
+Visualization: Similar to credit, use cards or a table to show these values.
+
+
+4. Ascertain the Highest and Lowest Monthly Transactions
+
+Measure:
+
+Use Month from your date column to create monthly aggregated totals.
+
+Highest Monthly Transaction:
+
+Highest Monthly Transaction = MAXX(SUMMARIZE('YourTable', 'YourTable'[Month], "MonthlyTotal", SUM('YourTable'[Credit] + 'YourTable'[Debit])), [MonthlyTotal])
+
+Lowest Monthly Transaction:
+
+Lowest Monthly Transaction = MINX(SUMMARIZE('YourTable', 'YourTable'[Month], "MonthlyTotal", SUM('YourTable'[Credit] + 'YourTable'[Debit])), [MonthlyTotal])
+
+
+Visualization: Use a bar chart to compare monthly totals, making it easy to see the highest and lowest values.
+
+
+5. Ascertain the Highest and Lowest Daily Transactions
+
+Measure:
+
+Use Date from your table for daily aggregated totals.
+
+Highest Daily Transaction:
+
+Highest Daily Transaction = MAXX(SUMMARIZE('YourTable', 'YourTable'[Date], "DailyTotal", SUM('YourTable'[Credit] + 'YourTable'[Debit])), [DailyTotal])
+
+Lowest Daily Transaction:
+
+Lowest Daily Transaction = MINX(SUMMARIZE('YourTable', 'YourTable'[Date], "DailyTotal", SUM('YourTable'[Credit] + 'YourTable'[Debit])), [DailyTotal])
+
+
+Visualization: Use a line chart or bar chart for daily transactions, highlighting the highest and lowest values.
+
+
+6. Identify the Transaction Category with the Highest Bonus
+
+Measure:
+
+Assuming you have a column called Transaction Category and Bonus, you can use the following measure to get the max bonus by category.
+
+Category with Highest Bonus = 
+CALCULATE(MAX('YourTable'[Bonus]), ALLEXCEPT('YourTable', 'YourTable'[Transaction Category]))
+
+
+Visualization: Use a bar chart by category to see which has the highest bonus.
+
+
+7. Ascertain the Most Preferred Transaction
+
+Measure:
+
+Define "preferred" based on transaction frequency or amount. Assuming it’s frequency, you can use:
+
+Most Preferred Transaction = 
+CALCULATE(MAXX(SUMMARIZE('YourTable', 'YourTable'[Transaction Category], "Count", COUNT('YourTable'[Transaction ID])), [Count]))
+
+
+Visualization: Use a column chart or table to display the count for each transaction category, highlighting the most preferred.
