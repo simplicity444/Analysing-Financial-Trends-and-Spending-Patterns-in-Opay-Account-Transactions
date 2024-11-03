@@ -92,8 +92,8 @@ AVERAGE('Opay Statement'[Debit])
 4. Ascertain the Highest and Lowest Monthly Transactions
 
 Measure:
-Use Month from your date column to create monthly aggregated totals.
-Highest Monthly Transaction:
+Used Month from date column to create monthly aggregated totals.
+Highest Monthly  Transaction:
 Highest Monthly Transaction = 
 ```
 MAXX(SUMMARIZE('YourTable', 'Opay Statement'[Month], "MonthlyTotal",
@@ -109,8 +109,7 @@ MINX(SUMMARIZE('Opay Statement', 'Opay Statement'[Month], "MonthlyTotal", SUM('O
 5. Ascertain the Highest and Lowest Daily Transactions
 
 Measure:
-
-Use Date from your table for daily aggregated totals.
+Used Date from table for daily aggregated totals.
 
 Highest Daily Transaction:
 ```
@@ -118,34 +117,22 @@ Highest Daily Transaction =
 MAXX(SUMMARIZE('Opay Statement', 'Opay Statement'[Date], "DailyTotal", SUM('Opay Statement'[Credit] + 'Opay Statement'[Debit])), [DailyTotal])
 ```
 Lowest Daily Transaction:
-
-Lowest Daily Transaction = MINX(SUMMARIZE('YourTable', 'YourTable'[Date], "DailyTotal", SUM('YourTable'[Credit] + 'YourTable'[Debit])), [DailyTotal])
-
-
-Visualization: Use a line chart or bar chart for daily transactions, highlighting the highest and lowest values.
-
+```
+Lowest Daily Transaction = MINX(SUMMARIZE('Opay Statement', 'Opay Statement'[Date], "DailyTotal", SUM('Opay Statement'[Credit] + 'Opay Statement'[Debit])), [DailyTotal])
+```
 
 6. Identify the Transaction Category with the Highest Bonus
 
 Measure:
-
-Assuming you have a column called Transaction Category and Bonus, you can use the following measure to get the max bonus by category.
-
+```
 Category with Highest Bonus = 
 CALCULATE(MAX('YourTable'[Bonus]), ALLEXCEPT('YourTable', 'YourTable'[Transaction Category]))
-
-
-Visualization: Use a bar chart by category to see which has the highest bonus.
-
+```
 
 7. Ascertain the Most Preferred Transaction
 
 Measure:
-
-Define "preferred" based on transaction frequency or amount. Assuming it’s frequency, you can use:
-
+```
 Most Preferred Transaction = 
-CALCULATE(MAXX(SUMMARIZE('YourTable', 'YourTable'[Transaction Category], "Count", COUNT('YourTable'[Transaction ID])), [Count]))
-
-
-Visualization: Use a column chart or table to display the count for each transaction category, highlighting the most preferred.
+CALCULATE(MAXX(SUMMARIZE('Opay Statement', 'Opay Statement'[Transaction Category], "Count", COUNT('Opay Statement'[Transaction ID])), [Count]))
+```
