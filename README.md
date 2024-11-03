@@ -56,7 +56,6 @@ Credit: = if [Amount] > 0 then [Amount] else null
 ### Data Analysis 
 
 - 1. Understand the Overall Transactions (Credit and Debit)
-
 Measure: Create a measure to sum both credit and debit transactions to get the overall transaction value.
 ```
 Total Transactions =
@@ -64,9 +63,7 @@ SUM('Opay Satement'[Credit]) +
 SUM('YourTable'[Debit])
 ```
 
-- 2. Determine the Total and Average Credit Transactions
-
-Measures:
+- 2. Determine the Total and Average Credit TransactionsMeasures:
 Total Credit: Sum of all credit transactions.
 
 Total Credit = SUM('YourTable'[Credit])
@@ -79,11 +76,9 @@ Average Credit = AVERAGE('YourTable'[Credit])
 Visualization: Use cards for each measure or a table to display total and average credit values.
 
 
-3. Determine the Total and Average Debit Transactions
+- 3. Determine the Total and Average Debit Transactions
 
-Measures:
-
-Total Debit: Sum of all debit transactions.
+- Measures:Total Debit: Sum of all debit transactions.
 
 Total Debit = SUM('YourTable'[Debit])
 
