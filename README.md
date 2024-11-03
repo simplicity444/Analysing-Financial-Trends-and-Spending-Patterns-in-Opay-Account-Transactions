@@ -10,4 +10,4 @@ In today’s digital economy, financial management is crucial for maintaining st
 
 ## Data sources
 
-This project analyses a comprehensive dataset [get data](#EKE OKE EKE_8067748504_20240705012205.pdf) derived from Opay account statements spanning from July 2023- July 2024. The dataset includes over 1,600 transactions categorized type such as transfers, airtime purchases, data and utility payments, date of transactions, transaction ID, credit and debit transactions.
+This project analyses a comprehensive dataset [get data](EKE OKE EKE_8067748504_20240705012205.pdf)derived from Opay account statements spanning from July 2023- July 2024. The dataset includes over 1,600 transactions categorized type such as transfers, airtime purchases, data and utility payments, date of transactions, transaction ID, credit and debit transactions.
